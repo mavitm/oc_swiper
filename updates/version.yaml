@@ -1,0 +1,8 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table mavitm_swiper_group'
+    - builder_table_create_mavitm_swiper_group.php
+1.0.3:
+    - 'Created table mavitm_swiper_items'
+    - builder_table_create_mavitm_swiper_items.php

@@ -1,0 +1,27 @@
+columns:
+    id:
+        label: id
+        type: number
+        sortable: true
+    group_id:
+        label: group_id
+        type: text
+        select: name
+        relation: group
+    name:
+        label: name
+        type: text
+        searchable: true
+        sortable: true
+    subtitle:
+        label: subtitle
+        type: text
+        invisible: true
+    created_at:
+        label: created_at
+        type: datetime
+        invisible: true
+    updated_at:
+        label: updated_at
+        type: datetime
+        invisible: true

@@ -1,0 +1,118 @@
+fields:
+    name:
+        label: 'mavitm.swiper::lang.group.form_name'
+        oc.commentPosition: ''
+        span: full
+        required: 1
+        type: text
+tabs:
+    fields:
+
+        itemrelation:
+            span: full
+            path: $/mavitm/swiper/models/group/_items.htm
+            type: partial
+            tab: 'mavitm.swiper::lang.group.form_content_tab'
+        options:
+            label: 'mavitm.swiper::lang.group.form_options'
+            span: auto
+            type: jsonable
+            tab: 'mavitm.swiper::lang.group.form_tab1'
+            form:
+                fields:
+                    controlstyle:
+                        label: 'mavitm.swiper::lang.group.form_controlstyle'
+                        oc.commentPosition: ''
+                        options:
+                            white: White
+                            std: 'mavitm.swiper::lang.group.form_opt_standart'
+                        emptyOption: '--'
+                        span: full
+                        type: dropdown
+                    pagination:
+                        label: 'mavitm.swiper::lang.group.form_swiper-pagination'
+                        span: full
+                        type: checkbox
+                    buttons:
+                        label: 'mavitm.swiper::lang.group.form_buttons'
+                        span: full
+                        type: checkbox
+                    scrollbar:
+                        label: 'mavitm.swiper::lang.group.form_scrollbar'
+                        span: full
+                        type: checkbox
+                    gallery:
+                        label: 'mavitm.swiper::lang.group.form_gallery'
+                        span: auto
+                        type: checkbox
+        options[items]:
+            label: 'mavitm.swiper::lang.group.form_itemoptions'
+            span: auto
+            type: jsonable
+            tab: 'mavitm.swiper::lang.group.form_tab1'
+            form:
+                fields:
+                    itemsType:
+                        label: 'mavitm.swiper::lang.group.form_itemsType'
+                        oc.commentPosition: ''
+                        options:
+                            img: 'mavitm.swiper::lang.group.form_opt_imgView'
+                            imgCarousel: 'mavitm.swiper::lang.group.form_opt_imgCarousel'
+                            content: 'mavitm.swiper::lang.group.form_opt_textFull'
+                            std: 'mavitm.swiper::lang.group.form_opt_standart'
+                        emptyOption: '--'
+                        span: full
+                        type: dropdown
+                    imgWidth:
+                        label: 'mavitm.swiper::lang.group.form_imgWidth'
+                        span: auto
+                        type: number
+                    imgHeight:
+                        label: 'mavitm.swiper::lang.group.form_imgHeight'
+                        span: auto
+                        type: number
+                    lazyPreloader:
+                        label: 'mavitm.swiper::lang.group.form_swiper_lazy'
+                        span: full
+                        type: checkbox
+                    carouselTextAdd:
+                        label: 'mavitm.swiper::lang.group.form_carouselTextAdd'
+                        span: full
+                        type: checkbox
+
+        'parameters[breakpoints]':
+            label: 'mavitm.swiper::lang.group.form_breakpoints'
+            oc.commentPosition: ''
+            prompt: 'Add new item'
+            span: auto
+            type: repeater
+            tab: 'mavitm.swiper::lang.group.form_tab2'
+            form:
+                fields:
+                    minwidth:
+                        label: 'mavitm.swiper::lang.group.breakpoints_minwidth'
+                        oc.commentPosition: ''
+                        span: full
+                        type: number
+                    slidesPerView:
+                        label: 'mavitm.swiper::lang.group.form_breakpoints_colCount'
+                        oc.commentPosition: ''
+                        span: auto
+                        type: number
+                    spaceBetween:
+                        label: 'mavitm.swiper::lang.group.form_braekpoints_space'
+                        oc.commentPosition: ''
+                        span: auto
+                        type: number
+        parallax:
+            label: 'mavitm.swiper::lang.group.form_parallax'
+            comment: 'mavitm.swiper::lang.group.form_parallax_desc'
+            oc.commentPosition: ''
+            mode: image
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: auto
+            type: fileupload
+            tab: 'mavitm.swiper::lang.group.form_tab3'

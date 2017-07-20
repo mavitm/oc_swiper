@@ -1,0 +1,9 @@
+<div class="title" data-swiper-parallax="-100">{{ item.name }}</div>
+{% if item.subtitle %}
+<div class="subtitle" data-swiper-parallax="-200">{{ item.subtitle }}</div>
+{% endif %}
+{% if item.content %}
+<div class="text" data-swiper-parallax="-300">
+    <p>{{ item.content|raw }}</p>
+</div>
+{% endif %}

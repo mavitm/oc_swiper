@@ -1,0 +1,10 @@
+name: Groups
+form: $/mavitm/swiper/models/group/fields.yaml
+modelClass: Mavitm\Swiper\Models\Group
+defaultRedirect: mavitm/swiper/groups
+create:
+    redirect: 'mavitm/swiper/groups/update/:id'
+    redirectClose: mavitm/swiper/groups
+update:
+    redirect: mavitm/swiper/groups
+    redirectClose: mavitm/swiper/groups

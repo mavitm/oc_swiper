@@ -1,0 +1,8 @@
+items:
+    label: Alt değerler
+    view:
+        list: $/mavitm/swiper/models/item/columns.yaml
+        toolbarButtons: create|delete
+    manage:
+        form: $/mavitm/swiper/models/item/fields.yaml
+        recordsPerPage: 100

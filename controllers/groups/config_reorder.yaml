@@ -1,0 +1,4 @@
+title: Groups
+modelClass: Mavitm\Swiper\Models\Group
+toolbar:
+    buttons: reorder_toolbar

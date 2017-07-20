@@ -1,0 +1,17 @@
+plugin:
+    name: 'mavitm.swiper::lang.plugin.name'
+    description: 'mavitm.swiper::lang.plugin.description'
+    author: Mavitm
+    icon: oc-icon-keyboard-o
+    homepage: 'http://www.mavitm.com'
+permissions:
+    swipe_slide_accsess:
+        tab: 'mavitm.swiper::lang.plugin.name'
+        label: 'mavitm.swiper::lang.plugin.name'
+navigation:
+    mavitm-swiper-item:
+        label: 'mavitm.swiper::lang.menu.mainMenu'
+        url: mavitm/swiper/groups
+        icon: icon-arrows
+        permissions:
+            - swipe_slide_accsess
