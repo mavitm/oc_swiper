@@ -13,7 +13,7 @@ class Carousel extends ComponentBase
     {
         return [
             'name'        => 'Carousel Component',
-            'description' => 'No description provided yet...'
+            'description' => 'Swiper carousel and slider'
         ];
     }
 
@@ -1140,7 +1140,6 @@ class Carousel extends ComponentBase
         $this->parameters = [];
         $adefault = $this->defineProperties();
         foreach ($this->getProperties() as $key => $value){
-
             if(isset($adefault[$key]['default']) && $adefault[$key]['default'] != $value){
                 if(is_numeric($value)){
                     $this->parameters[$key] = $value;

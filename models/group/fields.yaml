@@ -43,8 +43,18 @@ tabs:
                         type: checkbox
                     gallery:
                         label: 'mavitm.swiper::lang.group.form_gallery'
-                        span: auto
+                        span: full
                         type: checkbox
+                    galImgThumbsWidth:
+                        label: 'mavitm.swiper::lang.group.galImgWidth'
+                        span: auto
+                        type: number
+                        default: 200
+                    galImgThumbsHeight:
+                        label: 'mavitm.swiper::lang.group.galImgHeight'
+                        span: auto
+                        type: number
+                        default: 120
         options[items]:
             label: 'mavitm.swiper::lang.group.form_itemoptions'
             span: auto

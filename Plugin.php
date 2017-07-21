@@ -7,7 +7,8 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            'Mavitm\Swiper\Components\Carousel' => 'SwiperCarousel'
+            'Mavitm\Swiper\Components\Carousel' => 'SwiperCarousel',
+            'Mavitm\Swiper\Components\Childs' => 'SwiperCarouselApi'
         ];
     }
 

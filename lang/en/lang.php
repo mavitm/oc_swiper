@@ -30,7 +30,9 @@
         'form_opt_standart' => 'Standart',
         'form_imgWidth'     => 'İtem resim genişliği',
         'form_imgHeight'    => 'İtem resim yüksekliği',
-        'form_carouselTextAdd'   => 'Resim slaytında metinsel verileri göster'
+        'form_carouselTextAdd'   => 'Resim slaytında metinsel verileri göster',
+        'galImgWidth'       => 'Galeri thumbs genişliği',
+        'galImgHeight'      => 'Galeri thumbs yüksekliği'
     ],
     'menu' => [
         'mainMenu' => 'Carousel',

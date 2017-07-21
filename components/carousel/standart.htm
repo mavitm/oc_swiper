@@ -1,0 +1,89 @@
+{% set controlStyle = '' %}
+{% set buttonStyle = '' %}
+{% set lazyStyle = '' %}
+{% set parallaxitems = false %}
+
+{% if grupOptions.controlstyle == 'white' %}
+{% set controlStyle = ' swiper-pagination-white' %}
+{% set buttonStyle = ' swiper-button-white' %}
+{% set lazyStyle = ' swiper-lazy-preloader-white' %}
+{% endif %}
+<div class="swiper-container">
+    {% if group.parallax.count > 0 %}
+    <div class="parallax-bg" style="background-image:url({{ group.parallax.thumb(__SELF__.property('width', 1920), __SELF__.property('height', 480), 'crop' ) }})" data-swiper-parallax="-10%"></div>
+    {% set parallaxitems = true %}
+    {% endif %}
+    <div class="swiper-wrapper">
+        {% if parallaxitems %}
+        {% for item in items %}
+        <div class="swiper-slide">
+            {% partial __SELF__ ~ "::content" item = item %}
+        </div>
+        {% endfor %}
+        {% else %}
+        {% for item in items %}
+        {% set itemAttr = '' %}
+        {% if grupOptions.items.itemsType == 'imgCarousel' %}
+        {% set itemAttr = ' style="background-image:url('~item.img.thumb(__SELF__.property('grupOptions.items.imgWidth', 1920), __SELF__.property('grupOptions.items.imgHeight', 480), 'crop' )~')"' %}
+        {% endif %}
+        <div class="swiper-slide"{{ itemAttr|raw }}>
+            {% if grupOptions.items.itemsType == 'img' %}
+
+            {% if grupOptions.items.lazyPreloader %}
+            <img src="{{ item.img.thumb(__SELF__.property('grupOptions.items.imgWidth', 1920), __SELF__.property('grupOptions.items.imgHeight', 480), 'crop' ) }}"
+                 data-src="{{ item.img.thumb(__SELF__.property('grupOptions.items.imgWidth', 1920), __SELF__.property('grupOptions.items.imgHeight', 480), 'crop' ) }}"
+                 class="swiper-item-img swiper-lazy" alt="">
+            {% else %}
+            <div class="swiper-zoom-container">
+                <img src="{{ item.img.thumb(__SELF__.property('grupOptions.items.imgWidth', 1920), __SELF__.property('grupOptions.items.imgHeight', 480), 'crop' ) }}"
+                     data-src="{{ item.img.thumb(__SELF__.property('grupOptions.items.imgWidth', 1920), __SELF__.property('grupOptions.items.imgHeight', 480), 'crop' ) }}"
+                     class="swiper-item-img swiper-lazy" alt="">
+            </div>
+            {% endif %}
+            {% elseif grupOptions.items.itemsType == 'imgCarousel' %}
+            {% if grupOptions.items.carouselTextAdd %}
+            {% partial __SELF__ ~ "::content" item = item %}
+            {% endif %}
+            {% elseif grupOptions.items.itemsType == 'content' %}
+            {% partial __SELF__ ~ "::content" item = item %}
+            {% else %}
+            <img src="{{ item.img.thumb(__SELF__.property('grupOptions.items.imgWidth', 1920), __SELF__.property('grupOptions.items.imgHeight', 480), 'crop' ) }}" class="swiper-item-img">
+            {% partial __SELF__ ~ "::content" item = item %}
+            {% endif %}
+            {% if grupOptions.items.lazyPreloader or parameters.lazyLoading %}
+            <div class="swiper-lazy-preloader{{lazyStyle}}"></div>
+            {% endif %}
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+    {% if grupOptions.scrollbar %}
+    <div class="swiper-scrollbar"></div>
+    {% endif %}
+    {% if grupOptions.pagination %}
+    <div class="swiper-pagination{{controlStyle}}"></div>
+    {% endif %}
+    {% if grupOptions.buttons %}
+    <div class="swiper-button-prev{{buttonStyle}}"></div>
+    <div class="swiper-button-next{{buttonStyle}}"></div>
+    {% endif %}
+</div>
+{% put scripts %}
+<script type="text/javascript">
+    var swiper = new Swiper('.swiper-container', {
+    {% if parameters %}
+    {% for pname, pvavalue in parameters %}
+    {% if pname != 'breakpoints' %}
+    {{ pname }}:{{pvavalue|raw}},
+    {% else %}
+    {{ pname }}:{{pvavalue|raw}},
+    {%endif%}
+    {% endfor %}
+    pagination: '.swiper-pagination',
+        paginationClickable: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev'
+    {% endif %}
+    });
+</script>
+{% endput %}

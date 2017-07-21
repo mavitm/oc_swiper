@@ -1,0 +1,85 @@
+{% put styles %}
+<style type="text/css">
+    .swiper-container {
+        width: 100%;
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .swiper-slide {
+        background-size: cover;
+        background-position: center;
+    }
+    .gallery-top {
+        height: 80%;
+        width: 100%;
+    }
+    .gallery-thumbs {
+        height: 20%;
+        box-sizing: border-box;
+        padding: 10px 0;
+    }
+    .gallery-thumbs .swiper-slide {
+        width: 25%;
+        height: 100%;
+        opacity: 0.4;
+    }
+    .gallery-thumbs .swiper-slide-active {
+        opacity: 1;
+    }
+</style>
+{% endput %}
+
+{% set controlStyle = '' %}
+{% set buttonStyle = '' %}
+{% set lazyStyle = '' %}
+{% set parallaxitems = false %}
+
+{% if grupOptions.controlstyle == 'white' %}
+    {% set controlStyle = ' swiper-pagination-white' %}
+    {% set buttonStyle  = ' swiper-button-white' %}
+    {% set lazyStyle    = ' swiper-lazy-preloader-white' %}
+{% endif %}
+
+<div class="swiper-container gallery-top">
+    <div class="swiper-wrapper">
+        {% for item in items %}
+        {% set itemAttr = ' style="background-image:url('~item.img.thumb(__SELF__.property('grupOptions.items.imgWidth', 1920), __SELF__.property('grupOptions.items.imgHeight', 480), 'crop' )~')"' %}
+        <div class="swiper-slide"{{itemAttr|raw}}>&nbsp;</div>
+        {% endfor %}
+    </div>
+    {% if grupOptions.scrollbar %}
+    <div class="swiper-scrollbar"></div>
+    {% endif %}
+
+    {% if grupOptions.buttons %}
+    <div class="swiper-button-prev{{buttonStyle}}"></div>
+    <div class="swiper-button-next{{buttonStyle}}"></div>
+    {% endif %}
+</div>
+<div class="swiper-container gallery-thumbs">
+    <div class="swiper-wrapper">
+        {% for item in items %}
+        {% set itemAttr = ' style="background-image:url('~item.img.thumb(__SELF__.property('grupOptions.galImgThumbsWidth', 200), __SELF__.property('galImgThumbsHeight', 120), 'crop' )~')"' %}
+        <div class="swiper-slide"{{itemAttr|raw}}>sda</div>
+        {% endfor %}
+    </div>
+</div>
+{% put scripts %}
+<script type="text/javascript">
+    var galleryTop = new Swiper('.gallery-top', {
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        spaceBetween: 10,
+    });
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+        spaceBetween: 10,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        touchRatio: 0.2,
+        slideToClickedSlide: true
+    });
+    galleryTop.params.control = galleryThumbs;
+    galleryThumbs.params.control = galleryTop;
+</script>
+{% endput %}
